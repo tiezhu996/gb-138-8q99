@@ -56,6 +56,27 @@ const Symptoms = () => {
           </p>
         </div>
 
+        {!selectedCategory && (
+          <Link
+            to="/medication"
+            className="group relative overflow-hidden flex items-center gap-5 bg-gradient-to-r from-sky-500 to-blue-600 rounded-3xl shadow-xl p-7 mb-10 text-white hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"
+          >
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/4" />
+            <div className="relative w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center text-4xl flex-shrink-0 group-hover:scale-110 transition-transform">
+              💊
+            </div>
+            <div className="relative flex-1">
+              <h3 className="text-2xl font-bold mb-1">用药安排</h3>
+              <p className="text-white/80 text-sm leading-relaxed">
+                全家共用一份喂药清单：记录药名、剂量和每天喂药时刻，点一下记下谁喂的，漏服一目了然。
+              </p>
+            </div>
+            <svg className="relative w-7 h-7 text-white/80 group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        )}
+
         {!selectedCategory ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {symptomCategories.map((category) => (
