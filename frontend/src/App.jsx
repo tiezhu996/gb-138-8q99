@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Symptoms from './pages/Symptoms';
+import Medication from './pages/Medication';
 import FamilyGuide from './pages/FamilyGuide';
 import Psychological from './pages/Psychological';
 import Resources from './pages/Resources';
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/symptoms" element={<Symptoms />} />
+        <Route path="/symptoms/medication" element={<Medication />} />
         <Route path="/family" element={<FamilyGuide />} />
         <Route path="/psychological" element={<Psychological />} />
         <Route path="/resources" element={<Resources />} />

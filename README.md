@@ -25,6 +25,7 @@ docker compose down -v --remove-orphans
 
 - 临终关怀知识导航
 - 症状照护与心理支持信息
+- 用药安排：全家共用一份待喂清单，记录药名/剂量/每日时刻，点击登记喂药人和时间，漏服标记、停用与历史翻阅
 - 资源、愿望清单和家属指南
 
 ## 本地开发
@@ -45,6 +46,13 @@ npm install
 npm run dev
 ```
 
+后端测试（使用 pg-mem 内存数据库，无需 PostgreSQL）：
+
+```bash
+cd backend
+npm test
+```
+
 数据库可通过根目录的 Docker Compose 单独启动：
 
 ```bash
@@ -56,7 +64,7 @@ docker compose up -d db
 | 层级 | 技术 |
 | --- | --- |
 | 前端 | React + Vite |
-| 后端 | Node.js health API |
+| 后端 | Node.js HTTP API（pg 连接 PostgreSQL） |
 | 数据库 | PostgreSQL |
 | 部署 | Docker Compose + Nginx |
 

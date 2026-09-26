@@ -57,32 +57,57 @@ const Symptoms = () => {
         </div>
 
         {!selectedCategory ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {symptomCategories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category)}
-                className="group relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-white/60 text-left p-6"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <div className={`absolute -top-8 -right-8 w-32 h-32 rounded-full bg-gradient-to-br ${gradients[category.id] || 'from-sky-400 to-blue-600'}`} />
+          <>
+            <Link
+              to="/symptoms/medication"
+              className="group relative block overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 mb-8 text-white bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500"
+            >
+              <div className="absolute top-0 right-0 w-56 h-56 bg-white/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+              <div className="relative p-7 flex items-center gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-3xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                  💊
                 </div>
-                <div className="relative flex items-start gap-4">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradients[category.id] || 'from-sky-400 to-blue-600'} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform flex-shrink-0`}>
-                    {category.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-warm-800 mb-2 group-hover:text-sky-600 transition-colors">
-                      {category.title}
-                    </h3>
-                    <p className="text-sm text-warm-500 leading-relaxed">
-                      {category.description}
-                    </p>
-                  </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold mb-1.5">用药安排 · 今日待喂清单</h3>
+                  <p className="text-white/85 text-sm leading-relaxed">
+                    记下药名、剂量和每天喂药时刻，全家看到的是同一份；到点点一下，记下是谁喂的、几点喂的。
+                  </p>
                 </div>
-              </button>
-            ))}
-          </div>
+                <div className="flex-shrink-0 w-11 h-11 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:translate-x-1 transition-all">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {symptomCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category)}
+                  className="group relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-white/60 text-left p-6"
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <div className={`absolute -top-8 -right-8 w-32 h-32 rounded-full bg-gradient-to-br ${gradients[category.id] || 'from-sky-400 to-blue-600'}`} />
+                  </div>
+                  <div className="relative flex items-start gap-4">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradients[category.id] || 'from-sky-400 to-blue-600'} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform flex-shrink-0`}>
+                      {category.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-warm-800 mb-2 group-hover:text-sky-600 transition-colors">
+                        {category.title}
+                      </h3>
+                      <p className="text-sm text-warm-500 leading-relaxed">
+                        {category.description}
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </>
         ) : (
           <div className="max-w-3xl mx-auto">
             <button

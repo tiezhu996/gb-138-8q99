@@ -4,6 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node src/server.js"
+    "dev": "node src/server.js",
+    "test": "node test/medication.test.js && node test/api.test.js",
+    "test:med": "node test/medication.test.js",
+    "test:api": "node test/api.test.js"
+  },
+  "dependencies": {
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "pg-mem": "^2.9.1"
   }
 }
